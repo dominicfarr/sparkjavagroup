@@ -11,6 +11,7 @@
 
     <modules>
         <module>static-at-root</module>
+        <module>slf4-log4j</module>
     </modules>
 
     <build>

@@ -1,4 +1,4 @@
-package domfarr.sparkjava.questions.staticroot;
+package domfarr.sparkjava.questions.log4j;
 
 import spark.Request;
 import spark.Response;
@@ -12,7 +12,6 @@ import static spark.Spark.staticFiles;
 public class Application {
 
     public static void main(String[] args) {
-        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "DEBUG");
         get("/", new Route() {
             public Object handle(Request request, Response response) throws Exception {
                 return IOUtils.toString(Spark.class.getResourceAsStream("/index.html"));
