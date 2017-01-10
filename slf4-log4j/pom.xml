@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>domfarr</groupId>
+    <parent>
+        <groupId>domfarr</groupId>
+        <artifactId>sparkjavagroup</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>slf4-log4j</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -27,6 +31,10 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

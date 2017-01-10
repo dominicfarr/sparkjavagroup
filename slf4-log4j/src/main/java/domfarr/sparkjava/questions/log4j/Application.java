@@ -7,7 +7,6 @@ import spark.Spark;
 import spark.utils.IOUtils;
 
 import static spark.Spark.get;
-import static spark.Spark.staticFiles;
 
 public class Application {
 
