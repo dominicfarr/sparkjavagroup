@@ -13,6 +13,7 @@
         <module>static-at-root</module>
         <module>slf4-log4j</module>
         <module>session-expired</module>
+        <module>attachment</module>
     </modules>
 
     <build>
