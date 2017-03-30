@@ -1,23 +1,21 @@
 package domfarr.sparkjava.questions.sessionexpired;
 
-import org.eclipse.jetty.server.SessionManager;
 import org.eclipse.jetty.server.session.AbstractSession;
-import org.eclipse.jetty.server.session.HashedSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import spark.*;
+import spark.Spark;
 import spark.utils.IOUtils;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-import java.util.EventListener;
 import java.util.UUID;
 
 import static java.lang.String.format;
 import static spark.Spark.*;
 
+// This module should be ignored as it only proves a point: Spark does not expose session in a fully meaningful way
+// Do not use this as an example or developer starting point!!
 public class Application {
     private final static Logger LOG = LoggerFactory.getLogger(Application.class);
 
@@ -37,11 +35,11 @@ public class Application {
 
         get("/", (request, response) -> {
             LOG.info("Root Get");
-            if(request.session(false) == null) {
+            if (request.session(false) == null) {
                 LOG.info("Session null");
                 HttpSession session = request.session().raw();
-                session.setMaxInactiveInterval(10*120);
-                ((AbstractSession)session).getSessionManager().addEventListener(new HttpSessionListener() {
+                session.setMaxInactiveInterval(10 * 120);
+                ((AbstractSession) session).getSessionManager().addEventListener(new HttpSessionListener() {
                     @Override
                     public void sessionCreated(HttpSessionEvent se) {
                         LOG.info("Session CREATED");
